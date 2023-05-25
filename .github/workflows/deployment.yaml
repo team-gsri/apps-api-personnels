@@ -18,7 +18,7 @@ jobs:
         id: next-version
 
       - name: Build and publish docker image
-        run: dotnet publish --configuration Release /target:PublishContainer /property:Version=${{ steps.next-version.outputs.next-version }}
+        run: dotnet publish src --configuration Release /target:PublishContainer /property:Version=${{ steps.next-version.outputs.next-version }}
 
       - name: Publish GitHub release
         uses: arwynfr/actions-conventional-versioning@v2
