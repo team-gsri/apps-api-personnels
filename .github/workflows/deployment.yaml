@@ -1,0 +1,24 @@
+name: continuous deployment
+
+on:
+  workflow_dispatch:
+  push:
+    branches: [main]
+
+jobs:
+  deployment:
+    runs-on: ubuntu-latest
+    steps:
+
+      - name: Checkout source files
+        uses: actions/checkout@v3
+
+      - name: Find new product version
+        uses: arwynfr/actions-conventional-versioning/get-newVersion@v2
+        id: next-version
+
+      - name: Build and publish docker image
+        run: dotnet publish --configuration Release /target:PublishContainer /property:Version=${{ steps.next-version.outputs.next-version }}
+
+      - name: Publish GitHub release
+        uses: arwynfr/actions-conventional-versioning@v2

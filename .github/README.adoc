@@ -1,0 +1,28 @@
+= GSRI API Personnels
+
+This microservice API is dedicated to unit membership management.
+
+== Rules and standards
+
+The following documents provide information on rules and standards applying to this project :
+
+* link:../LICENSE.md[MIT license]
+
+The following documents provide information on rules and standards applying to this organization :
+
+* https://github.com/team-gsri/.github/blob/master/CODE_OF_CONDUCT.md[GSRI Code of conduct]
+* https://github.com/team-gsri/.github/blob/master/SECURITY.md[GSRI Security policy]
+* https://github.com/team-gsri/.github/blob/master/SUPPORT.md[GSRI Support policy]
+* https://github.com/team-gsri/.github/blob/master/CONTRIBUTING.md[GSRI Contribution guide]
+* https://github.com/team-gsri/.github/blob/master/DOCUMENTING.md[GSRI Documentation guide]
+
+The following documents provide information on rules and standards applying to Bohemia Interactive software :
+
+* https://www.bohemia.net/community/licenses/bohemia-interactives-tools-end-user-license[BI Tools EULA]
+* https://www.bohemia.net/community/licenses/arma3-end-user-license[BI Arma 3 EULA]
+
+== Disclaimer
+
+This application or website is not affiliated or authorized by Bohemia Interactive a.s. Bohemia Interactive, ARMA, DAYZ and all associated logos and designs are trademarks or registered trademarks of Bohemia Interactive a.s.
+
+The GSRI logo is a trademark of GSRI.
