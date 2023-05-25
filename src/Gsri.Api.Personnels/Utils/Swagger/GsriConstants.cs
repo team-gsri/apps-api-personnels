@@ -2,9 +2,9 @@
 
 public static class GsriConstants
 {
-    public const string LongName = "Groupe Spécial de Reconnaissance et d'Intervention";
+    public static string LongName { get; } = "Groupe Spécial de Reconnaissance et d'Intervention";
 
-    public const string ShortName = "GSRI";
+    public static string ShortName { get; } = "GSRI";
 
-    public const string Uri = "www.gsri.team";
+    public static string Uri { get; } = "www.gsri.team";
 }
