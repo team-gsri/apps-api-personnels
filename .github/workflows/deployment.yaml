@@ -17,6 +17,13 @@ jobs:
         uses: arwynfr/actions-conventional-versioning/get-newVersion@v2
         id: next-version
 
+      - name: Login to GitHub Container Registry
+        uses: docker/login-action@v2
+        with:
+          registry: ghcr.io
+          username: ${{ github.actor }}
+          password: ${{ secrets.GITHUB_TOKEN }}
+          
       - name: Build and publish docker image
         run: dotnet publish src --configuration Release /target:PublishContainer /property:Version=${{ steps.next-version.outputs.next-version }}
 
