@@ -26,7 +26,7 @@ jobs:
           
       - name: Build and publish docker image
         run: |
-          dotnet publish src --configuration Release /target:PublishContainer /property:Version=${{ steps.next-version.outputs.next-version }} /property:ContainerRegistry= /property:ContainerImageName=ghcr.io/team-gsri/apps-api-personnels
+          dotnet publish src/Gsri.Api.Personnels --configuration Release /target:PublishContainer /property:Version=${{ steps.next-version.outputs.next-version }} /property:ContainerRegistry= /property:ContainerImageName=ghcr.io/team-gsri/apps-api-personnels
           docker push ghcr.io/team-gsri/apps-api-personnels:${{ steps.next-version.outputs.next-version }}
 
       - name: Publish GitHub release
