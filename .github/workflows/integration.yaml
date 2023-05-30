@@ -19,7 +19,7 @@ jobs:
             --health-timeout 5s
             --health-retries 5
     env:
-      ConnectionStrings__PersonnelsDbContext: Host=postgres;Port=5432;Database=postgres;User ID=postgres;Password=password
+      ConnectionStrings__PersonnelsDbContext: Host=postgres;Port=5432;Database=postgres;User ID=postgres;Password=password;Timeout=60
     steps:
 
       - name: Checkout source files
