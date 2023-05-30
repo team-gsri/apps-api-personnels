@@ -15,11 +15,11 @@ jobs:
           POSTGRES_PASSWORD: postgres
           options: >-
             --health-cmd "pg_isready -q -h postgres"
-            --health-interval 10s
+            --health-interval 1s
             --health-timeout 5s
             --health-retries 5
     env:
-      ConnectionStrings__PersonnelsDbContext: Host=postgres;Port=5432;Database=postgres;User ID=postgres;Password=password;Timeout=60
+      ConnectionStrings__PersonnelsDbContext: Host=postgres;Port=5432;Database=postgres;User ID=postgres;Password=password;Timeout=120
     steps:
 
       - name: Checkout source files
@@ -27,6 +27,7 @@ jobs:
 
       - name: Apply database migration
         run : |
+          sleep 1m
           dotnet tool install --global dotnet-ef
           dotnet ef database update --project src/Gsri.Api.Personnels
 
