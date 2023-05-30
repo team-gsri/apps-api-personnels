@@ -26,7 +26,9 @@ jobs:
         uses: actions/checkout@v3
 
       - name: Apply database migration
-        run : dotnet ef database update --project src/Gsri.Api.Personnels
+        run : |
+          dotnet tool install dotnet-ef
+          dotnet ef database update --project src/Gsri.Api.Personnels
 
       - name: Running unit tests
         run: dotnet test src
