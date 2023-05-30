@@ -5,6 +5,8 @@
     <ImplicitUsings>enable</ImplicitUsings>
     <Nullable>enable</Nullable>
     <Exclude>[Gsri.*]Gsri.Api.Personnels.Migrations.*,[Gsri.*]Gsri.Api.Personnels.Utils.*</Exclude>
+    <CollectCoverage>true</CollectCoverage>
+    <CoverletOutputFormat>cobertura</CoverletOutputFormat>
   </PropertyGroup>
 
   <ItemGroup>
