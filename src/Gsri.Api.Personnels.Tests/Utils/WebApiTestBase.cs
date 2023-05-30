@@ -10,8 +10,6 @@ public abstract class WebApiTestBase<TEntryPoint, TContext> : IDisposable
     where TEntryPoint : class
     where TContext : DbContext
 {
-    private readonly WebApplicationFactory<TEntryPoint> factory;
-
     private readonly IServiceScope scope;
 
     private readonly IDbContextTransaction transaction;
@@ -20,7 +18,7 @@ public abstract class WebApiTestBase<TEntryPoint, TContext> : IDisposable
 
     protected WebApiTestBase()
     {
-        factory = new WebApplicationFactory<TEntryPoint>();
+        var factory = new WebApplicationFactory<TEntryPoint>();
         scope = factory.Services.CreateScope();
         Context = scope.ServiceProvider.GetRequiredService<TContext>();
         transaction = Context.Database.BeginTransaction();
