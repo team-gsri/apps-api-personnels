@@ -51,3 +51,5 @@ using (var scope = app.Services.GetRequiredService<IServiceScopeFactory>().Creat
 }
 
 await app.RunAsync().ConfigureAwait(false);
+
+public partial class Program { }
