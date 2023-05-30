@@ -14,22 +14,23 @@ jobs:
         env:
           POSTGRES_PASSWORD: postgres
           options: >-
-            --health-cmd "pg_isready -q -h postgres"
-            --health-interval 1s
+            --health-cmd pg_isready
+            --health-interval 10s
             --health-timeout 5s
             --health-retries 5
     env:
       ConnectionStrings__PersonnelsDbContext: Host=postgres;Port=5432;Database=postgres;User ID=postgres;Password=password;Timeout=120
+    container: mcr.microsoft.com/dotnet/sdk:7.0
     steps:
 
       - name: Checkout source files
         uses: actions/checkout@v3
 
+      - name: Install EF core tools
+        run: dotnet tool install --global dotnet-ef
+
       - name: Apply database migration
-        run : |
-          sleep 1m
-          dotnet tool install --global dotnet-ef
-          dotnet ef database update --project src/Gsri.Api.Personnels
+        run : dotnet ef database update --project src/Gsri.Api.Personnels
 
       - name: Running unit tests
         run: dotnet test src
