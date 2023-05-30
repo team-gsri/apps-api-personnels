@@ -34,3 +34,10 @@ jobs:
 
       - name: Running unit tests
         run: dotnet test src
+
+        
+      - name: Run codacy-coverage-reporter
+        uses: codacy/codacy-coverage-reporter-action@v1
+        with:
+          project-token: ${{ secrets.CODACY_PROJECT_TOKEN }}
+          coverage-reports: src/Gsri.Api.Personnels.Tests/coverage.covbertura.xml
