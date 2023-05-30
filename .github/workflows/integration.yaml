@@ -8,10 +8,25 @@ on:
 jobs:
   integration:
     runs-on: ubuntu-latest
+    services:
+      postgres:
+        image: postgres
+        env:
+          POSTGRES_PASSWORD: postgres
+          options: >-
+            --health-cmd pg_isready
+            --health-interval 10s
+            --health-timeout 5s
+            --health-retries 5
+    env:
+      ConnectionStrings__PersonnelsDbContext: Host=postgres;Port=5432;Database=postgres;User ID=postgres;Password=password
     steps:
 
       - name: Checkout source files
         uses: actions/checkout@v3
+
+      - name: Apply database migration
+        run : dotnet ef database update --project src/Gsri.Api.Personnels
 
       - name: Running unit tests
         run: dotnet test src
