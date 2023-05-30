@@ -30,7 +30,7 @@ jobs:
         run: dotnet tool install --global dotnet-ef
 
       - name: Apply database migration
-        run : dotnet ef database update --project src/Gsri.Api.Personnels
+        run : /github/home/.dotnet/tools/dotnet-ef database update --project src/Gsri.Api.Personnels
 
       - name: Running unit tests
         run: dotnet test src
