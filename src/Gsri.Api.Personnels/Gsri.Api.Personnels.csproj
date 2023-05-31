@@ -6,8 +6,8 @@
     <Nullable>enable</Nullable>
     <UserSecretsId>e3e7d846-a12e-4c64-807e-604005d68faa</UserSecretsId>
     <ContainerRuntimeIdentifier>linux-x64</ContainerRuntimeIdentifier>
-    <ContainerImageName>team-gsri/apps-api-personnels</ContainerImageName>
-    <ContainerRegistry>ghcr.io</ContainerRegistry>
+    <ContainerImageName>ghcr.io/team-gsri/apps-api-personnels</ContainerImageName>
+    <ContainerRegistry></ContainerRegistry>
   </PropertyGroup>
 
   <ItemGroup>

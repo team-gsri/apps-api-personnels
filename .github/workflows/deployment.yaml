@@ -29,14 +29,7 @@ jobs:
           password: ${{ secrets.GITHUB_TOKEN }}
 
       - name: Build Docker image
-        run: >
-          dotnet publish
-            src/Gsri.Api.Personnels
-            --configuration Release
-            /target:PublishContainer
-            /property:Version=${{ steps.next-version.outputs.next-version }}
-            /property:ContainerRegistry=
-            /property:ContainerImageName=ghcr.io/team-gsri/apps-api-personnels
+        run: dotnet publish src/Gsri.Api.Personnels --configuration Release /target:PublishContainer /property:Version=${{ steps.next-version.outputs.next-version }}
 
       - name: Publish Docker image
         run: docker push ghcr.io/team-gsri/apps-api-personnels:${{ steps.next-version.outputs.next-version }}
